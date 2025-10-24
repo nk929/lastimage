@@ -1,0 +1,273 @@
+/* CSS Reset & Variables */
+:root { 
+  --bg: #0b0f14; 
+  --fg: #e6eef7; 
+  --muted: #8aa3bf; 
+  --brand: #5ac8fa;
+  --danger: #ff7474;
+  --card-bg: #111725;
+  --border: #1f2a3a;
+  --border-light: #203044;
+  --code-bg: #0b1320;
+  --code-border: #1e2a41;
+  --footer-color: #6e87a6;
+  --hint-color: #93acc6;
+}
+
+/* Base Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+/* Layout */
+.wrap {
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+/* Typography */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--fg);
+}
+
+p {
+  color: var(--muted);
+  margin: 6px 0 18px;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--hint-color);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 14px;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Grid Layout */
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.panel {
+  flex: 1 1 360px;
+  min-width: 300px;
+}
+
+/* Form Elements */
+input[type="file"] {
+  display: block;
+  padding: 12px 0;
+  width: 100%;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background: var(--brand);
+  color: #001019;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: #4bb3e6;
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--brand);
+  color: #001019;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #4bb3e6;
+  transform: translateY(-1px);
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn[disabled]:hover {
+  background: var(--brand);
+  transform: none;
+}
+
+.download-btn {
+  margin-top: 12px;
+  background: #34c759;
+  color: white;
+}
+
+.download-btn:hover {
+  background: #30b350;
+}
+
+/* Canvas & Preview */
+.preview {
+  display: block;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  background: #0a0e13;
+  min-height: 200px;
+  aspect-ratio: 16/9; /* 1920x1080 비율 유지 */
+}
+
+.canvas-info {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* Details & Code */
+details {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+details[open] summary {
+  margin-bottom: 12px;
+}
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* Hidden Elements */
+.hidden {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--footer-color);
+  margin: 0;
+}
+
+/* Status Indicators */
+#status {
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+#status.loading {
+  color: var(--brand);
+}
+
+#status.success {
+  color: #34c759;
+}
+
+#status.error {
+  color: var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wrap {
+    margin: 20px auto;
+    padding: 16px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .panel {
+    min-width: auto;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 12px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
